@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Patient Page</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/patients">All Patients</a>
+        <a href="/patients/new">Add Patient</a>
+      </nav>
+
+     <h1> Patient Page</h1>
+     <ul>
+         <%for(let i=0;i< patients.length; i++) {%>
+            <li style="margin-bottom: 20px;">
+                <a href="/patients/<%= patients[i]._id %>">
+                    <%= patients[i].name %>
+                </a>
+                
+            </li>
+         <li></li>
+     </ul>
+
+  </ul>
+</body>
+</html>
