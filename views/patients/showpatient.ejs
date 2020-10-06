@@ -7,9 +7,22 @@
 </head>
 <body>
     <div>
-        <p>Name: <%= patient.name %></p>
-        <p>Age: <%= patient.age %></p>
-        <p>Address: <%= patient.address %></p>
+        <p><strong>Name:</strong> <%= patient.name %></p>
+        <p><strong>Age:</strong> <%= patient.age %></p>
     </div>
+    <div>
+        <p><strong>Address:</strong> </p>
+        <p><%= patient.address[0].streetNumber %> <span></span> 
+            <%= patient.address[0].streetName %></p>
+        <p><%= patient.address[0].city %></p>
+        <p><%= patient.address[0].state %></p>
+    </div>
+    <div>
+        <p><strong>Primary Doctor:</strong> <%= patient.primarydoc %></p>
+    </div>
+    <div>
+        <p><strong>Insurance:</strong> <%= patient.insurance %></p>
+    </div>
+    
 </body>
 </html>
