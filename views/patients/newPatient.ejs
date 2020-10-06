@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Patient Page</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/patients">All Patients</a>
+        <a href="/patients/new">Add Patient</a>
+      </nav>
+      <h1> Add a New Patient</h1>
+      <form action="/patients" method="POST">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" />
+        </div>
+        <div>
+            <label for="age">Age</label>
+            <input type="text" id="age" name="age" />
+        </div>
+        <div>
+            <label for="address">Address:</label>
+            <div>
+                <label for="streetNumber">Street Number</label>
+                <input type="text" id="streetNumber" name="streetNumber" />
+            </div>
+            <div>
+                <label for="streetName">Street Name</label>
+                <input type="text" id="streetName" name="streetName" />
+            </div>
+            <div>
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" />
+            </div>
+            <div>
+                <select name="states" id="states">
+                <option value="">--Select the State--</option>
+                <% for(let i=0;i<4;i++) {
+                    const states=['CA','NV','AZ','UT'];%>
+                        <option value="<%=states[i] %>"><%= states[i] %></option>
+                <% } %>
+            </select>
+            </div>
+            <div>
+                <label for="insurance">Insurance</label>
+                <input type="text" id="insurance" name="insurance" />
+            </div>
+            <div>
+                <label for="primarydoc">Primary Doctor</label>
+                <input type="text" id="primarydoc" name="primarydoc" />
+            </div>
+        
+        </div>
+        <!-- <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" />
+        </div>
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" />
+        </div> -->
+        <input type="submit" value="Add Patient" />
+
+
+
+      </form>
+</body>
+</html>
+
+
+
+
+<!-- name: {
+    type:String,
+    required: true
+},
+age: Number,
+address:[{
+    streetNumber: Number,
+    streetName : String,
+    city: String,
+    state: {
+        type: String,
+        minlength: 2,
+        maxlength: 2
+    }
+}],
+insurance:String,
+primarydoc: String -->
