@@ -52,12 +52,12 @@ router.get('/', (req, res) => { // Route Handler
     })
   })
 
-  // remove a Patient
-  router.delete('/:patientId',(req,res)=>{
-      db.Patient.findByIdAndDelete(req.params.patientId,(err,delPatient)=>{
-          if(err) return console.log(err)
-          res.redirect('/patients');
-      })
-  })
+    // remove a Patient
+    router.delete('/:patientId',(req,res)=>{
+        db.Patient.findByIdAndDelete(req.params.patientId,(err,delPatient)=>{
+            if(err) return console.log(err)
+            res.redirect('/patients');
+        })
+    })
 
   module.exports = router;
