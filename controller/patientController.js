@@ -15,17 +15,11 @@ router.get('/', (req, res) => { // Route Handler
     
   });
 
-  // Show Page for Individual Patient
-  router.get('/:patientId',(req,res)=>{
-    db.Patient.findById(req.params.patientId,(err,indPatient)=>{
-        res.render('patients/showPatient',{
-            patient:indPatient
-        })
-    })
-  })
+ 
 
   //NEW Patients
   router.get('/new',(req,res) =>{
+    //   res.send("sending to new patient page");
     res.render('patients/newPatient')
   })
 
@@ -47,6 +41,23 @@ router.get('/', (req, res) => { // Route Handler
     db.Patient.create(req.body,(err,createdPatient)=>{
         res.redirect(`/patients`);
     })
+  })
+
+ //  Show Page for Individual Patient
+  router.get('/:patientId',(req,res)=>{
+    db.Patient.findById(req.params.patientId,(err,indPatient)=>{
+        res.render('patients/showPatient',{
+            patient:indPatient
+        })
+    })
+  })
+
+  // remove a Patient
+  router.delete('/:patientId',(req,res)=>{
+      db.Patient.findByIdAndDelete(req.params.patientId,(err,delPatient)=>{
+          if(err) return console.log(err)
+          res.redirect('/patients');
+      })
   })
 
   module.exports = router;

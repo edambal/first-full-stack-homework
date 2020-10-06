@@ -23,6 +23,13 @@
     <div>
         <p><strong>Insurance:</strong> <%= patient.insurance %></p>
     </div>
+
+    <form action="/patients/<%=patient._id%>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete Patient"/>
+    </form>
+    <form action="/patients/<%=patient._id%>/edit" method="GET">
+        <input type="submit" value="Edit Patient"/>
+    </form>
     
 </body>
 </html>
