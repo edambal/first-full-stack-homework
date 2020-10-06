@@ -3,8 +3,10 @@ const router = express.Router();
 
 const db = require('../models');
 
+// Show Index Page for All Patients
 router.get('/', (req, res) => { // Route Handler 
     db.Patient.find({},(err,allPatients)=>{
+        if(err) return console.log(error);
         res.render('patients/indexPatient',{
             patients : allPatients
         })
@@ -12,6 +14,15 @@ router.get('/', (req, res) => { // Route Handler
     
     
   });
+
+  // Show Page for Individual Patient
+  router.get('/:patientId',(req,res)=>{
+    db.Patient.findById(req.params.patientId,(err,indPatient)=>{
+        res.render('patients/showPatient',{
+            patient:indPatient
+        })
+    })
+  })
 
   //NEW Patients
   router.get('/new',(req,res) =>{
