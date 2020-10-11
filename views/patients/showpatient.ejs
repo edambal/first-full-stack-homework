@@ -6,16 +6,22 @@
     <title>Individual Patient Page</title>
 </head>
 <body>
+    <h1>Patient Details Page</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/patients">All Patients</a>
+        <a href="/patients/new">Add Patient</a>
+      </nav>
     <div>
         <p><strong>Name:</strong> <%= patient.name %></p>
         <p><strong>Age:</strong> <%= patient.age %></p>
     </div>
     <div>
         <p><strong>Address:</strong> </p>
-        <p><%= patient.address[0].streetNumber %> <span></span> 
-            <%= patient.address[0].streetName %></p>
-        <p><%= patient.address[0].city %></p>
-        <p><%= patient.address[0].state %></p>
+        <p><%= patient.address.streetNumber %> <span></span> 
+            <%= patient.address.streetName %></p>
+        <p><%= patient.address.city %></p>
+        <p><%= patient.address.state %></p>
     </div>
     <div>
         <p><strong>Primary Doctor:</strong> <%= patient.primarydoc %></p>

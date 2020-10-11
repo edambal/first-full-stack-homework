@@ -38,12 +38,13 @@
             <div>
                 <select name="states" id="states">
                 <option value="">--Select the State--</option>
-                <% for(let i=0;i<4;i++) {
-                    const states=['CA','NV','AZ','UT'];%>
+                <% const states=['AK', 'AL', 'AR', 'AS', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'GU', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MP', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UM', 'UT', 'VA', 'VI', 'VT', 'WA', 'WI', 'WV', 'WY'];
+                for(let i=0;i<states.length;i++) {%>
                         <option value="<%=states[i] %>"><%= states[i] %></option>
                 <% } %>
-            </select>
+                </select>
             </div>
+        </div>
             <div>
                 <label for="insurance">Insurance</label>
                 <input type="text" id="insurance" name="insurance" />
@@ -54,39 +55,7 @@
             </div>
         
         </div>
-        <!-- <div>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" />
-        </div>
-        <div>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" />
-        </div> -->
         <input type="submit" value="Add Patient" />
-
-
-
       </form>
 </body>
 </html>
-
-
-
-
-<!-- name: {
-    type:String,
-    required: true
-},
-age: Number,
-address:[{
-    streetNumber: Number,
-    streetName : String,
-    city: String,
-    state: {
-        type: String,
-        minlength: 2,
-        maxlength: 2
-    }
-}],
-insurance:String,
-primarydoc: String -->

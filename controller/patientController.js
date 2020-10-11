@@ -27,12 +27,12 @@ router.get('/', (req, res) => { // Route Handler
   router.post('/',(req,res)=>{
 
     // Set fields for address
-   req.body.address = [{
+   req.body.address = {
     streetNumber : req.body.streetNumber,
     streetName: req.body.streetName,
     city: req.body.city,
     state: req.body.states,
-  }]
+  }
   // delete the exitsing fields since address is build as new key value pair
     delete req.body.streetNumber;
     delete req.body.streetName;
@@ -58,6 +58,25 @@ router.get('/', (req, res) => { // Route Handler
             if(err) return console.log(err)
             res.redirect('/patients');
         })
+    })
+
+    //edit patient GET
+    router.get('/:patientId/edit',(req,res)=>{
+        db.Patient.findById(req.params.patientId,(err,patientToEdit)=>{
+          console.log(patientToEdit);
+            if(err) return console.log(err);
+            res.render('patients/editPatient',{
+                patient:patientToEdit
+            })
+        })
+    })
+
+    //edit patient PUT
+    router.put('/:patientId',(req,res)=>{
+      console.log("Patient Body to be edited",req.body);
+      db.Patient.findByIdAndUpdate(req.params.patientId,req.body,{new:true},(err,updatedPatient)=>{
+        res.redirect(`/patients/${updatedPatient._id}`);
+      })
     })
 
   module.exports = router;

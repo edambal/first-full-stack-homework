@@ -8,7 +8,7 @@ const patientSchema = new schema ({
         required: true
     },
     age: Number,
-    address:[{
+    address:{
         streetNumber: Number,
         streetName : String,
         city: String,
@@ -17,7 +17,7 @@ const patientSchema = new schema ({
             minlength: 2,
             maxlength: 2
         }
-    }],
+    },
     insurance:String,
     primarydoc: String
 },{timestamps:true});

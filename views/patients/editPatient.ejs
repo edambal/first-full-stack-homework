@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Patient Page</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/patients">All Patients</a>
+        <a href="/patients/new">Add Patient</a>
+      </nav>
+
+     <h1> Patient Page</h1>
+
+    <form action="/patients/<%=patient._id%>?_method=PUT" method="POST">
+        <div>
+            <label for="name"><strong><br>Name:</br></strong></label>
+            <input type="text" name="name" id="name" value="<%=patient.name%>">
+        </div>
+        <div>
+            <label for="age"><strong><br>Age:</br></strong></label>
+            <input type="text" name="age" id="age" value="<%=patient.age%>">
+        </div>
+        <div>
+            <label for="address"><strong><br>Address:</br></strong></label>
+            <input type="text" name="address.streetNumber" id="streetNumber" value="<%=patient.address.streetNumber%>">
+            <input type="text" name="address.streetName" id="streetName" value="<%=patient.address.streetName%>">
+            <input type="text" name="address.city" id="city" value="<%=patient.address.city%>">
+            <input type="text" name="address.state" id="state" value="<%=patient.address.state%>">
+        </div>
+        <div>
+            <label for="primarydoc"><strong><br>Primary Doctor:</br></strong></label>
+            <input type="text" name="primarydoc" id="primarydoc" value="<%=patient.primarydoc%>">
+        </div>
+        <div>
+            <label for="insurance"><strong><br>Insurance:</br></strong></label>
+            <input type="text" name="insurance" id="insurance" value="<%=patient.insurance%>">
+        </div>
+        <div>
+            <p><input type="submit" value="Submit Changes"></p>
+        </div>
+        
+    </form>
+   
+</body>
+</html>
